@@ -21,12 +21,12 @@
 
 ### Color Palette
 
-$\color{#4a85d6}{\rule[-4.5pt]{30pt}{15pt}}$ `#4a85d6` Lighter Primary Color<br>
-$\color{#2968b7}{\rule[-4.5pt]{30pt}{15pt}}$ `#2968b7` Primary Color (*Base*)<br>
+$\color{#4a85d6}{\rule[-4.5pt]{30pt}{15pt}}$ `#4a85d6` Lighter Primary Color\
+$\color{#2968b7}{\rule[-4.5pt]{30pt}{15pt}}$ `#2968b7` Primary Color (*Base*)\
 $\color{#1e4b83}{\rule[-4.5pt]{30pt}{15pt}}$ `#1e4b83` Darker Primary Color 
 
-$\color{#484d55}{\rule[-4.5pt]{30pt}{15pt}}$ `#484d55` Lighter Secondary Color<br>
-$\color{#212529}{\rule[-4.5pt]{30pt}{15pt}}$ `#212529` Secondary Color (*Accented*)<br>
-$\color{#181c20}{\rule[-4.5pt]{30pt}{15pt}}$ `#181c20` Darker Secondary Color  
+$\color{#484d55}{\rule[-4.5pt]{30pt}{15pt}}$ `#484d55` Lighter Secondary Color\
+$\color{#212529}{\rule[-4.5pt]{30pt}{15pt}}$ `#212529` Secondary Color (*Accented*)\
+$\color{#181c20}{\rule[-4.5pt]{30pt}{15pt}}$ `#181c20` Darker Secondary Color
 
-$\color{#b75729}{\rule[-4.5pt]{30pt}{15pt}}$ `#b75729` Complementary Color (*Contrast*)
+$\color{#b75729}{\rule[-4.5pt]{30pt}{15pt}}$ `#b75729` Contrast Color
