@@ -1,0 +1,15 @@
+{
+  "name": "devboardlist",
+  "version": "1.0.0",
+  "description": "List of different development boards and their features",
+  "main": "",
+  "author": "",
+  "license": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@types/tabulator-tables": "^6.2.0"
+  }
+}
