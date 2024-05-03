@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image" href="">
     <title>DevBoardList</title>
+
+    <!-- #region includes -->
+    <!-- include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- include tabulator -->
+    <link rel="stylesheet" href="https://unpkg.com/tabulator-tables@6.2.1/dist/css/tabulator.min.css">
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@6.2.1/dist/js/tabulator.min.js"></script>
+
+    <!-- include custom -->
+    <script type="text/javascript" src="./assets/script/tables.js"></script>
+    <!-- #endregion -->
 </head>
 <body>
-    
+
+    <!-- container for Tabulator Table -->
+    <div id="board-table"></div>
+
+    <script>loadBoardTable()</script>
 </body>
 </html>
