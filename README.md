@@ -21,19 +21,12 @@
 
 ### Color Palette
 
-![#4a85d6](https://placehold.co/50x20/4a85d6/4a85d6) 
-Lighter Primary Color: `#4a85d6`<br>
-<span style="background-color:#2968b7; width: 50px; height: 20px; display: inline-block; vertical-align: middle;"></span> 
-Primary Color (*Base*): `#2968b7`<br>
-<span style="background-color:#1e4b83; width: 50px; height: 20px; display: inline-block; vertical-align: middle;"></span> 
-Darker Primary Color: `#1e4b83` 
+$\color{#4a85d6}{\rule[-4.5pt]{30pt}{15pt}}$ `#4a85d6` Lighter Primary Color<br>
+$\color{#2968b7}{\rule[-4.5pt]{30pt}{15pt}}$ `#2968b7` Primary Color (*Base*)<br>
+$\color{#1e4b83}{\rule[-4.5pt]{30pt}{15pt}}$ `#1e4b83` Darker Primary Color 
 
-<span style="background-color:#484d55; width: 50px; height: 20px; display: inline-block; vertical-align: middle;"></span>
-Lighter Secondary Color: `#484d55`<br>
-<span style="background-color:#212529; width: 50px; height: 20px; display: inline-block; vertical-align: middle;"></span>
-Secondary Color (*Accented*): `#212529`<br>
-<span style="background-color:#181c20; width: 50px; height: 20px; display: inline-block; vertical-align: middle;"></span>
-Darker Secondary Color: `#181c20` 
+$\color{#484d55}{\rule[-4.5pt]{30pt}{15pt}}$ `#484d55` Lighter Secondary Color<br>
+$\color{#212529}{\rule[-4.5pt]{30pt}{15pt}}$ `#212529` Secondary Color (*Accented*)<br>
+$\color{#181c20}{\rule[-4.5pt]{30pt}{15pt}}$ `#181c20` Darker Secondary Color  
 
-<span style="background-color:#b75729; width: 50px; height: 20px; display: inline-block; vertical-align: middle;"></span>
-Complementary Color (*Contrast*): `#b75729`
+$\color{#b75729}{\rule[-4.5pt]{30pt}{15pt}}$ `#b75729` Complementary Color (*Contrast*)
