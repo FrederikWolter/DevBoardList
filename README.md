@@ -22,18 +22,18 @@
 ### Color Palette
 
 <span style="background-color:#4a85d6; width: 50px; height: 20px; display: inline-block; vertical-align: middle;"></span>
-Lighter Primary Color: **#4a85d6**<br>
+Lighter Primary Color: `#4a85d6`<br>
 <span style="background-color:#2968b7; width: 50px; height: 20px; display: inline-block; vertical-align: middle;"></span> 
-Primary Color (*Base*): **#2968b7**<br>
+Primary Color (*Base*): `#2968b7`<br>
 <span style="background-color:#1e4b83; width: 50px; height: 20px; display: inline-block; vertical-align: middle;"></span> 
-Darker Primary Color: **#1e4b83** 
+Darker Primary Color: `#1e4b83` 
 
 <span style="background-color:#484d55; width: 50px; height: 20px; display: inline-block; vertical-align: middle;"></span>
-Lighter Secondary Color: **#484d55** <br>
-<span style="background-color:#212529; width: 50px; height: 20px; display: inline-block; vertical-align: middle;"></span> Secondary Color (*Accented*): **#212529** <br>
+Lighter Secondary Color: `#484d55`<br>
+<span style="background-color:#212529; width: 50px; height: 20px; display: inline-block; vertical-align: middle;"></span>
+Secondary Color (*Accented*): `#212529`<br>
 <span style="background-color:#181c20; width: 50px; height: 20px; display: inline-block; vertical-align: middle;"></span>
-Darker Secondary Color: **#181c20** 
+Darker Secondary Color: `#181c20` 
 
 <span style="background-color:#b75729; width: 50px; height: 20px; display: inline-block; vertical-align: middle;"></span>
-Complementary Color (*Contrast*): **#b75729**
-
+Complementary Color (*Contrast*): `#b75729`
