@@ -21,7 +21,7 @@
 
 ### Color Palette
 
-<span style="background-color:#4a85d6; width: 50px; height: 20px; display: inline-block; vertical-align: middle;"></span>
+![#4a85d6](https://placehold.co/50x20/4a85d6/4a85d6) 
 Lighter Primary Color: `#4a85d6`<br>
 <span style="background-color:#2968b7; width: 50px; height: 20px; display: inline-block; vertical-align: middle;"></span> 
 Primary Color (*Base*): `#2968b7`<br>
