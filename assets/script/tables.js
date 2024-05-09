@@ -1,9 +1,9 @@
-/*
- * File containing functionality about tabulator integration.
+/**
+ * File containing tabulator integration.
  */
 
 /**
- * Function loading tabulator table into given div element.
+ * Function loading board tabulator table into given div element.
  * 
  * @param {HTMLDivElement} element 
  * @returns {Tabulator}
