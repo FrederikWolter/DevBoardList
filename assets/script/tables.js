@@ -4,9 +4,8 @@
 
 /**
  * Function loading board tabulator table into given div element.
- * 
- * @param {HTMLDivElement} element 
- * @returns {Tabulator}
+ * @param {HTMLDivElement} element div into which table will be loaded.
+ * @returns {Tabulator} tabulator instance representing loaded table.
  */
 function loadBoardTable(element) {
     // create tabulator object
@@ -22,6 +21,9 @@ function loadBoardTable(element) {
         ],
     });
 }
+// TODO add column grouping https://tabulator.info/docs/6.2/columns#groups
+// TODO implement nested data e.g. for controllers https://tabulator.info/docs/6.2/columns#field-nesting
+// TODO custom formatter for human readable storageSpace
 
 /**
  * List of boards to be displayed in board table.
@@ -33,3 +35,7 @@ const boards = [
     { id: 4, name: "Alice", age: 35 },
     { id: 5, name: "Bob", age: 28 },
 ]
+
+
+// // @ts-check
+// import { Tabulator } from "tabulator-tables";
