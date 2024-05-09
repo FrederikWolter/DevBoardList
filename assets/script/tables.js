@@ -1,5 +1,5 @@
 /**
- * File containing tabulator integration.
+ * File containing tabulator definition.
  */
 
 /**
