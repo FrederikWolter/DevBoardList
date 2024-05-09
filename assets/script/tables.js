@@ -10,8 +10,18 @@
 function loadBoardTable(element) {
     // create tabulator object
     return new Tabulator(element, {
-        // TODO auto fit columns to width of container
-        layout: "fitColumns",
+        /** Set layout to fit columns to data. @see https://tabulator.info/docs/6.2/layout#layout */
+        layout: "fitDataFill",
+        /** Set responsive behavior of table. @see https://tabulator.info/docs/6.2/layout#responsive */
+        responsiveLayout: false,
+        /** Set rows to be movable. @see https://tabulator.info/docs/6.2/move */
+        movableRows:true,
+        /** Set columns to be movable. @see https://tabulator.info/docs/6.2/move */
+        movableColumns: true,
+        /** Set nested field separator. @see https://tabulator.info/docs/6.2/columns#field-nesting */
+        nestedFieldSeparator: ".",
+        /** Set row header. @see https://tabulator.info/docs/6.2/layout#row-header */
+        rowHeader: false,
         // TODO enable pagination
         pagination: true,
         // TODO set number of rows per page
@@ -39,6 +49,7 @@ function loadBoardTable(element) {
                 field: "name",
                 visible: true,
                 frozen: true,
+                rowHandle:true,
             },
             {
                 title: "Image",
@@ -47,6 +58,7 @@ function loadBoardTable(element) {
                 hozAlign: "center",
                 resizable: false,
                 frozen: true,
+                rowHandle:true,
             },
             {
                 title: "ImageSrc",
