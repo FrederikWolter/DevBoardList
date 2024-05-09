@@ -14,7 +14,8 @@ function loadBoardTable(element) {
         pagination: true,                   // ## enable pagination
         paginationSize: 10,                 // ## set number of rows per page
         index: "id",                        // set unique index (see https://tabulator.info/docs/6.2/data#row-index)
-        placeholder: TBL_PLACEHOLDER,       // set empty table text (see https://tabulator.info/docs/6.2/layout#placeholder)
+        placeholder: tblEMPTY,              // set empty text (see https://tabulator.info/docs/6.2/layout#placeholder)
+        placeholderHeaderFilter: tblNOMATCH,// set no result text (see https://tabulator.info/docs/6.2/layout#placeholder)
         data: getBoards(),                  // set data (see https://tabulator.info/docs/6.2/data#array)
         columns: [                          // set columns (see https://tabulator.info/docs/6.2/columns)
             {
