@@ -10,14 +10,24 @@
 function loadBoardTable(element) {
     // create tabulator object
     return new Tabulator(element, {
-        layout: "fitColumns",               // ## auto fit columns to width of container
-        pagination: true,                   // ## enable pagination
-        paginationSize: 10,                 // ## set number of rows per page
-        index: "id",                        // set unique index (see https://tabulator.info/docs/6.2/data#row-index)
-        placeholder: tblEMPTY,              // set empty text (see https://tabulator.info/docs/6.2/layout#placeholder)
-        placeholderHeaderFilter: tblNOMATCH,// set no result text (see https://tabulator.info/docs/6.2/layout#placeholder)
-        data: getBoards(),                  // set data (see https://tabulator.info/docs/6.2/data#array)
-        columns: [                          // set columns (see https://tabulator.info/docs/6.2/columns)
+        // TODO auto fit columns to width of container
+        layout: "fitColumns",
+        // TODO enable pagination
+        pagination: true,
+        // TODO set number of rows per page
+        paginationSize: 10,
+        /** Set unique index. @see https://tabulator.info/docs/6.2/data#row-index */
+        index: "id",
+        /** Set empty table text. @see https://tabulator.info/docs/6.2/layout#placeholder */
+        placeholder: tblEMPTY,
+        /** Set no filter result text. @see https://tabulator.info/docs/6.2/layout#placeholder */
+        placeholderHeaderFilter: tblNO_MATCH,
+        /** Set data. @see https://tabulator.info/docs/6.2/data#array */
+        data: getBoards(),
+        /** Set column defaults. @see https://tabulator.info/docs/6.2/columns#defaults */          
+        columnDefaults: {},
+        /** Set column definition. @see https://tabulator.info/docs/6.2/columns */               
+        columns: [
             {
                 title: "ID",
                 field: "id",

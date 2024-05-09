@@ -15,5 +15,5 @@ const tblEMPTY = "No Data Available";
  * @constant {string}
  * @see [Link](https://tabulator.info/docs/6.2/layout#placeholder)
  */
-const tblNOMATCH = "No Matching Data Available"
+const tblNO_MATCH = "No Matching Data Available"
 // #endregion
