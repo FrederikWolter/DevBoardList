@@ -18,6 +18,18 @@
 
 ## Documentation
 
+### Table Alternatives
+The following table library alternatives were considered in the selection process:
+
+- [**Tabulator.js**](https://tabulator.info/): Chosen for its simplicity, flexibility, and rich set of features. It offers easy integration, responsive design, and powerful functionality for interactive tables. -- ✔️[open source](https://github.com/olifolkerd/tabulator)
+
+- [DataTables.js](https://datatables.net/): A popular jQuery plugin for displaying and managing large datasets in tabular format. Known for its extensive feature set and customization options. -- ✔️[open source](https://github.com/DataTables/DataTables)
+
+- [SlickGrid](https://slickgrid.net/): A lightweight, customizable grid library built on jQuery. Known for its speed and performance, especially when dealing with large datasets. -- ✔️[open source](https://github.com/6pac/SlickGrid)
+
+- [Handsontable](https://handsontable.com/): An Excel-like JavaScript data grid component that provides a spreadsheet experience to users. Known for its ease of use and wide range of features for data manipulation. -- ❌[pricing](https://handsontable.com/pricing)
+
+- [Ag-Grid](https://www.ag-grid.com/): A high-performance professional JavaScript data grid component with support for a wide range of features. Often chosen for its performance and scalability. -- ❌[pricing](https://www.ag-grid.com/license-pricing/)
 
 ### Color Palette
 
