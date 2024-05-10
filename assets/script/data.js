@@ -3,7 +3,7 @@
  */
 
 
-// TODO document types https://stackoverflow.com/a/32139970
+// TODO document/comment types https://stackoverflow.com/a/32139970
 /**
  * Function returning list of boards.
  * @returns list of boards.

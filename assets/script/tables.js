@@ -262,8 +262,8 @@ function loadBoardTable(element) {
                 visible: true,
             },
             {
-                title: "Castellated",
-                field: "castellated",
+                title: "Castl.",
+                field: "castellatedEdge",
                 visible: true,
             },
             {
