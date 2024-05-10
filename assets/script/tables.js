@@ -15,7 +15,7 @@ function loadBoardTable(element) {
         /** Set responsive behavior of table. @see https://tabulator.info/docs/6.2/layout#responsive */
         responsiveLayout: false,
         /** Set rows to be movable. @see https://tabulator.info/docs/6.2/move */
-        movableRows:true,
+        movableRows: true,
         /** Set columns to be movable. @see https://tabulator.info/docs/6.2/move */
         movableColumns: true,
         /** Set nested field separator. @see https://tabulator.info/docs/6.2/columns#field-nesting */
@@ -49,7 +49,7 @@ function loadBoardTable(element) {
                 field: "name",
                 visible: true,
                 frozen: true,
-                rowHandle:true,
+                rowHandle: true,
             },
             {
                 title: "Image",
@@ -58,7 +58,8 @@ function loadBoardTable(element) {
                 hozAlign: "center",
                 resizable: false,
                 frozen: true,
-                rowHandle:true,
+                rowHandle: true,
+                headerSort: false,
             },
             {
                 title: "ImageSrc",
