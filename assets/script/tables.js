@@ -22,6 +22,14 @@ function loadBoardTable(element) {
         nestedFieldSeparator: ".",
         /** Set row header. @see https://tabulator.info/docs/6.2/layout#row-header */
         rowHeader: false,
+        /** Set initial sort. @see https://tabulator.info/docs/6.2/sort#initial */
+        initialSort: [{column: "name", dir: "asc"}],
+        /** Set header sort icon. @see https://tabulator.info/docs/6.2/sort#icon */
+        headerSortElement: "<div class='tabulator-arrow'></div>",
+        /** Set clickable element. @see https://tabulator.info/docs/6.2/sort#header */
+        headerSortClickElement: "header",
+        /** Set multi sort to enable. @see https://tabulator.info/docs/6.2/sort#header */
+        columnHeaderSortMulti: true,
         // TODO enable pagination
         pagination: true,
         // TODO set number of rows per page
@@ -243,6 +251,8 @@ function loadBoardTable(element) {
 // TODO add column grouping https://tabulator.info/docs/6.2/columns#groups
 // TODO implement nested data e.g. for controllers https://tabulator.info/docs/6.2/columns#field-nesting
 // TODO custom formatter for human readable storageSpace
+// TODO custom sort icon in header? https://icons.getbootstrap.com/icons/caret-up/ https://icons.getbootstrap.com/icons/caret-up-fill/
+//  TODO filtering https://tabulator.info/docs/6.2/options#filter
 
 
 // // @ts-check
