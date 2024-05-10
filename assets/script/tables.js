@@ -298,12 +298,13 @@ function loadBoardTable(element) {
 // TODO https://tabulator.info/docs/6.2/options#find-table
 // TODO https://tabulator.info/docs/6.2/options#default
 
+// #region formatters
 
 /**
  * Custom Formatter for handling advanced links (e.g. icons).
  * @param {CellComponent} cell component of cell.
  * @param {{}} formatterParams parameters set for formatter.
- * @param {EmptyCallback} onRendered function to call when formatter has been rendered
+ * @param {EmptyCallback} onRendered function to call when formatter has been rendered.
  * @returns {HTMLAnchorElement} formatted link element.
  */
 const formatterLink = function (cell, formatterParams, onRendered) {
@@ -319,24 +320,22 @@ const formatterLink = function (cell, formatterParams, onRendered) {
     el.href = urlPrefix + cell.getValue() + urlSuffix;
     el.innerHTML = label;
 
-    if (target) {
+    if (target)
         el.target = target;
-    }
 
-    if (type) {
+    if (type)
         el.type = type;
-    }
 
-    if (download) {
+    if (download)
         el.download = download === true ? "" : download;
-    }
 
-    if (cssClass) {
+    if (cssClass)
         el.className = cssClass;
-    }
 
     return el;
 }
+
+// #endregion
 
 // // @ts-check
 // import { Tabulator } from "tabulator-tables";
