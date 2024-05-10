@@ -30,10 +30,14 @@ function loadBoardTable(element) {
         headerSortClickElement: "header",
         /** Set multi sort to enable. @see https://tabulator.info/docs/6.2/sort#header */
         columnHeaderSortMulti: true,
-        // TODO enable pagination
+        /** Set pagination enabled. @see https://tabulator.info/docs/6.2/page#local */
         pagination: true,
-        // TODO set number of rows per page
+        /** Set initial pagination size. @see https://tabulator.info/docs/6.2/page#local */
         paginationSize: 10,
+        /** Set pagination size steps. @see https://tabulator.info/docs/6.2/page#local */
+        paginationSizeSelector: [10, 25, 50, true],
+        /** Set clipboard behavior. @see https://tabulator.info/docs/6.2/clipboard */
+        clipboard: "copy",
         /** Set unique index. @see https://tabulator.info/docs/6.2/data#row-index */
         index: "id",
         /** Set empty table text. @see https://tabulator.info/docs/6.2/layout#placeholder */
@@ -252,8 +256,16 @@ function loadBoardTable(element) {
 // TODO implement nested data e.g. for controllers https://tabulator.info/docs/6.2/columns#field-nesting
 // TODO custom formatter for human readable storageSpace
 // TODO custom sort icon in header? https://icons.getbootstrap.com/icons/caret-up/ https://icons.getbootstrap.com/icons/caret-up-fill/
-//  TODO filtering https://tabulator.info/docs/6.2/options#filter
+// TODO filtering https://tabulator.info/docs/6.2/options#filter
+// TODO add grouping option e.g. for controller column: https://tabulator.info/docs/6.2/options#group
+// TODO setup persistance? https://tabulator.info/docs/6.2/persist
+// TODO add selection? https://tabulator.info/docs/6.2/range#clipboard
 
+// TODO https://tabulator.info/docs/6.2/options#print
+// TODO https://tabulator.info/docs/6.2/options#menu
+// TODO https://tabulator.info/docs/6.2/options#popup
+// TODO https://tabulator.info/docs/6.2/options#find-table
+// TODO https://tabulator.info/docs/6.2/options#default
 
 // // @ts-check
 // import { Tabulator } from "tabulator-tables";
