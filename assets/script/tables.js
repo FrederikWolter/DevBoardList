@@ -235,8 +235,8 @@ function loadBoardTable(element) {
                 visible: true,
             },
             {
-                title: "Edge",
-                field: "edgeCut",
+                title: "Castellated",
+                field: "castellated",
                 visible: true,
             },
             {
