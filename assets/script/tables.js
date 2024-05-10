@@ -89,6 +89,17 @@ function loadBoardTable(element) {
                 title: "Link",
                 field: "link",
                 visible: true,
+                resizable: false,
+                headerSort: false,
+                hozAlign: "center",
+                formatter: formatterLink,
+                formatterParams: {
+                    urlPrefix: "",
+                    urlSuffix: "",
+                    target: "_blank",
+                    label: "<i class='bi bi-box-arrow-up-right'></i>",
+                    // cssClass: "btn",
+                }
             },
             {
                 title: "Price",
@@ -286,6 +297,46 @@ function loadBoardTable(element) {
 // TODO https://tabulator.info/docs/6.2/options#popup
 // TODO https://tabulator.info/docs/6.2/options#find-table
 // TODO https://tabulator.info/docs/6.2/options#default
+
+
+/**
+ * Custom Formatter for handling advanced links (e.g. icons).
+ * @param {CellComponent} cell component of cell.
+ * @param {{}} formatterParams parameters set for formatter.
+ * @param {EmptyCallback} onRendered function to call when formatter has been rendered
+ * @returns {HTMLAnchorElement} formatted link element.
+ */
+const formatterLink = function (cell, formatterParams, onRendered) {
+    let urlPrefix = formatterParams.urlPrefix || "";
+    let urlSuffix = formatterParams.urlSuffix || "";
+    let download = formatterParams.download;
+    let target = formatterParams.target;
+    let type = formatterParams.type;
+    let label = formatterParams.label;
+    let cssClass = formatterParams.cssClass;
+
+    let el = document.createElement("a")
+    el.href = urlPrefix + cell.getValue() + urlSuffix;
+    el.innerHTML = label;
+
+    if (target) {
+        el.target = target;
+    }
+
+    if (type) {
+        el.type = type;
+    }
+
+    if (download) {
+        el.download = download === true ? "" : download;
+    }
+
+    if (cssClass) {
+        el.className = cssClass;
+    }
+
+    return el;
+}
 
 // // @ts-check
 // import { Tabulator } from "tabulator-tables";
