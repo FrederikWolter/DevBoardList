@@ -65,13 +65,20 @@ function loadBoardTable(element) {
             },
             {
                 title: "Image",
-                field: "image",
+                field: "id",
                 visible: true,
-                hozAlign: "center",
                 resizable: false,
                 frozen: true,
                 rowHandle: true,
                 headerSort: false,
+                hozAlign: "center",
+                formatter: "image",
+                formatterParams: {
+                    height: "50px",
+                    width: "100px",
+                    urlPrefix: "./assets/boards/",
+                    urlSuffix: "_1.jpg",
+                },
             },
             {
                 title: "ImageSrc",
@@ -87,6 +94,15 @@ function loadBoardTable(element) {
                 title: "Price",
                 field: "price",
                 visible: true,
+                formatter: "money",
+                formatterParams: {
+                    decimal: ",",
+                    thousand: ".",
+                    symbol: "€",
+                    symbolAfter: true,
+                    negativeSign: "-",
+                    precision: 1,
+                }
             },
             {
                 title: "Width",
@@ -248,6 +264,7 @@ function loadBoardTable(element) {
                 title: "Comment",
                 field: "comment",
                 visible: true,
+                formatter: "textarea",
             },
         ],
     });
