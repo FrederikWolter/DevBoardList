@@ -119,11 +119,23 @@ function loadBoardTable(element) {
                 title: "Width",
                 field: "dimX",
                 visible: true,
+                formatter: formatterUOM,
+                formatterParams: {
+                    precision: 0,
+                    symbol: [" Pin", " Pins"],
+                    base: 1,
+                }
             },
             {
                 title: "Height",
                 field: "dimY",
                 visible: true,
+                formatter: formatterUOM,
+                formatterParams: {
+                    precision: 0,
+                    symbol: [" Pin", " Pins"],
+                    base: 1,
+                }
             },
             {
                 title: "Datasheet",
@@ -173,11 +185,23 @@ function loadBoardTable(element) {
                 title: "VoltOp",
                 field: "voltOp",
                 visible: true,
+                formatter: formatterUOM,
+                formatterParams: {
+                    precision: false,
+                    decimal: ",",
+                    symbol: "V",
+                }
             },
             {
                 title: "VoltIn",
                 field: "voltIn",
                 visible: true,
+                formatter: formatterUOM,
+                formatterParams: {
+                    precision: false,
+                    decimal: ",",
+                    symbol: "V",
+                }
             },
             {
                 title: "Connector",
@@ -188,21 +212,57 @@ function loadBoardTable(element) {
                 title: "Flash",
                 field: "sizeFlash",
                 visible: true,
+                formatter: formatterUOM,
+                formatterParams: {
+                    precision: 1,
+                    thousand: ".",
+                    decimal: ",",
+                    symbol: ["B", "KB", "MB", "GB", "TB"],
+                    base: 1024,
+                    cut: 768,
+                }
             },
             {
                 title: "FlashFree",
                 field: "sizeFlashFree",
                 visible: true,
+                formatter: formatterUOM,
+                formatterParams: {
+                    precision: 1,
+                    thousand: ".",
+                    decimal: ",",
+                    symbol: ["B", "KB", "MB", "GB", "TB"],
+                    base: 1024,
+                    cut: 768,
+                }
             },
             {
                 title: "RAM",
                 field: "sizeRAM",
                 visible: true,
+                formatter: formatterUOM,
+                formatterParams: {
+                    precision: 1,
+                    thousand: ".",
+                    decimal: ",",
+                    symbol: ["B", "KB", "MB", "GB", "TB"],
+                    base: 1024,
+                    cut: 768,
+                }
             },
             {
                 title: "EPROM",
                 field: "sizeEPROM",
                 visible: true,
+                formatter: formatterUOM,
+                formatterParams: {
+                    precision: 1,
+                    thousand: ".",
+                    decimal: ",",
+                    symbol: ["B", "KB", "MB", "GB", "TB"],
+                    base: 1024,
+                    cut: 768,
+                }
             },
             {
                 title: "Pinout",
@@ -333,6 +393,57 @@ const formatterLink = function (cell, formatterParams, onRendered) {
         el.className = cssClass;
 
     return el;
+}
+
+
+/**
+ * Custom Formatter for handling measured values and their order of magnitude.
+ * @param {CellComponent} cell component of cell.
+ * @param {{}} formatterParams parameters set for formatter.
+ * @param {EmptyCallback} onRendered function to call when formatter has been rendered.
+ * @returns {string} formatted string.
+ */
+const formatterUOM = function (cell, formatterParams, onRendered) {
+    let value = parseFloat(cell.getValue());
+    let base = formatterParams.base;
+    let cut = formatterParams.cut || base;
+    let precision = formatterParams.precision || false;
+    let decimal = formatterParams.decimal || ".";
+    let thousand = formatterParams.thousand || ",";
+    let symbol = formatterParams.symbol || "";
+
+    if (isNaN(value))
+        return "ERROR";
+
+    if (base === 1)
+        symbol = value === 1 ? symbol[0] : symbol[1];
+
+    if (base > 1) {
+        let index = 0;
+        while (value >= base && index < symbol.length - 1) {
+            value /= base;
+            index++;
+        }
+        if (value >= cut && index < symbol.length - 1) {
+            value /= base;
+            index++;
+        }
+        symbol = symbol[index];
+    }
+
+    if (precision !== false)
+        value = value.toFixed(precision)
+
+    if (decimal !== false)
+        value = String(value).replace(".", decimal);
+
+    if (thousand !== false) {
+        let rgx = /(\d+)(\d{3})/;
+        while (rgx.test(value))
+            value = value.replace(rgx, "$1" + thousand + "$2");
+    }
+
+    return value + symbol;
 }
 
 // #endregion
