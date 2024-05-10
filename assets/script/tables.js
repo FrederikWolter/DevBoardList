@@ -23,7 +23,7 @@ function loadBoardTable(element) {
         /** Set row header. @see https://tabulator.info/docs/6.2/layout#row-header */
         rowHeader: false,
         /** Set initial sort. @see https://tabulator.info/docs/6.2/sort#initial */
-        initialSort: [{column: "name", dir: "asc"}],
+        initialSort: [{ column: "name", dir: "asc" }],
         /** Set header sort icon. @see https://tabulator.info/docs/6.2/sort#icon */
         headerSortElement: "<div class='tabulator-arrow'></div>",
         /** Set clickable element. @see https://tabulator.info/docs/6.2/sort#header */
@@ -46,9 +46,9 @@ function loadBoardTable(element) {
         placeholderHeaderFilter: tblNO_MATCH,
         /** Set data. @see https://tabulator.info/docs/6.2/data#array */
         data: getBoards(),
-        /** Set column defaults. @see https://tabulator.info/docs/6.2/columns#defaults */          
+        /** Set column defaults. @see https://tabulator.info/docs/6.2/columns#defaults */
         columnDefaults: {},
-        /** Set column definition. @see https://tabulator.info/docs/6.2/columns */               
+        /** Set column definition. @see https://tabulator.info/docs/6.2/columns */
         columns: [
             {
                 title: "ID",
@@ -260,6 +260,9 @@ function loadBoardTable(element) {
 // TODO add grouping option e.g. for controller column: https://tabulator.info/docs/6.2/options#group
 // TODO setup persistance? https://tabulator.info/docs/6.2/persist
 // TODO add selection? https://tabulator.info/docs/6.2/range#clipboard
+// TODO fix image scaling https://getbootstrap.com/docs/5.3/utilities/object-fit/
+// TODO add bit image view (possibly with multiple images) https://stackoverflow.com/a/76806304
+
 
 // TODO https://tabulator.info/docs/6.2/options#print
 // TODO https://tabulator.info/docs/6.2/options#menu
