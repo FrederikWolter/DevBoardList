@@ -197,6 +197,7 @@ function loadBoardTable(element) {
                 formatter: formatterUOM,
                 formatterParams: {
                     precision: false,
+                    thousand: ".",
                     decimal: ",",
                     symbol: "V",
                 }
@@ -208,6 +209,7 @@ function loadBoardTable(element) {
                 formatter: formatterUOM,
                 formatterParams: {
                     precision: false,
+                    thousand: ".",
                     decimal: ",",
                     symbol: "V",
                 }
@@ -442,7 +444,7 @@ const formatterUOM = function (cell, formatterParams, onRendered) {
 
     value = applyPrecision(value, precision);
     value = applyDecimalSeparator(value, decimal);
-    value = applyThousandSeparator(value, thousand);
+    value = applyThousandSeparator(value, thousand, decimal);
 
     return value + symbol;
 }
@@ -482,15 +484,16 @@ function applyDecimalSeparator(value, sep) {
  * Applies a given thousand separator to a numeric string.
  * @param {string} value numeric string to which separator will be applied.
  * @param {string|false} sep used thousand separator (false skips separator).
+ * @param {string|false} decimal present decimal point in value.
  * @returns {string} numeric string with separator applied.
  */
-function applyThousandSeparator(value, sep) {
-    const rgx = /(\d+)(\d{3})/;
+function applyThousandSeparator(value, sep, decimal) {
+    decimal = decimal || ".";
+    // see https://stackoverflow.com/a/2901298
+    const rgx = new RegExp(`\\B(?<!${"\\" + decimal}\\d*)(?=(\\d{3})+(?!\\d))`, "g");
 
     if (sep !== false) {
-        while (rgx.test(value)) {
-            value = value.replace(rgx, "$1" + sep + "$2");
-        }
+        value = value.replace(rgx, sep);
     }
     return value;
 }
