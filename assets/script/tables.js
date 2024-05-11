@@ -50,346 +50,381 @@ function loadBoardTable(element) {
         columnDefaults: {},
         /** Set column definition. @see https://tabulator.info/docs/6.2/columns */
         columns: [
-            {
-                title: "ID",
-                field: "id",
-                visible: false,
+            {   // BOARD
+                title: "Board",
                 frozen: true,
-                resizable: false,
-                rowHandle: true,
-                headerSort: false,
+                columns: [
+                    {
+                        title: "ID",
+                        field: "id",
+                        visible: false,
+                        frozen: true,
+                        resizable: false,
+                        rowHandle: true,
+                        headerSort: false,
+                    },
+                    {
+                        title: "Name",
+                        field: "name",
+                        visible: true,
+                        frozen: true,
+                        rowHandle: true,
+                    },
+                    {
+                        title: "Image",
+                        field: "id",
+                        visible: true,
+                        frozen: true,
+                        resizable: false,
+                        rowHandle: true,
+                        headerSort: false,
+                        hozAlign: "center",
+                        formatter: formatterImage,
+                        formatterParams: {
+                            urlPrefix: "./assets/boards/",
+                            urlSuffix: "_board_1.jpg",
+                            width: "100px",
+                            height: "50px",
+                            loading: "lazy",
+                            cssClass: "object-fit-contain",     // https://getbootstrap.com/docs/5.3/utilities/object-fit/
+                        },
+                    },
+                    {
+                        title: "ImageSrc",
+                        field: "imageSrc",
+                        visible: false,
+                    },
+                ],
             },
-            {
-                title: "Name",
-                field: "name",
-                visible: true,
-                frozen: true,
-                rowHandle: true,
+            {   // GENERAL
+                title: "General",
+                columns: [
+                    {
+                        title: "Link",
+                        field: "link",
+                        visible: true,
+                        resizable: false,
+                        headerSort: false,
+                        hozAlign: "center",
+                        formatter: formatterLink,
+                        formatterParams: {
+                            urlPrefix: "",
+                            urlSuffix: "",
+                            target: "_blank",
+                            label: "<i class='bi bi-box-arrow-up-right'></i>",
+                            // cssClass: "btn",
+                        }
+                    },
+                    {
+                        title: "Price",
+                        field: "price",
+                        visible: true,
+                        formatter: "money",
+                        formatterParams: {
+                            decimal: ",",
+                            thousand: ".",
+                            symbol: "€",
+                            symbolAfter: true,
+                            negativeSign: "-",
+                            precision: 1,
+                        }
+                    },
+                    {
+                        title: "Width",
+                        field: "dimX",
+                        visible: true,
+                        formatter: formatterUOM,
+                        formatterParams: {
+                            precision: 0,
+                            symbol: ["Pin", "Pins"],
+                            base: 1,
+                        }
+                    },
+                    {
+                        title: "Height",
+                        field: "dimY",
+                        visible: true,
+                        formatter: formatterUOM,
+                        formatterParams: {
+                            precision: 0,
+                            symbol: ["Pin", "Pins"],
+                            base: 1,
+                        }
+                    },
+                    {
+                        title: "Connector",
+                        field: "connector",
+                        visible: true,
+                    },
+                    {
+                        title: "Docs",
+                        field: "id",
+                        visible: true,
+                        resizable: false,
+                        headerSort: false,
+                        hozAlign: "center",
+                        formatter: formatterLink,
+                        formatterParams: {
+                            urlPrefix: "./assets/boards/",
+                            urlSuffix: "_datasheet_1.pdf",
+                            target: "_blank",
+                            label: "<i class='bi bi-file-earmark-ruled'></i>",
+                            // cssClass: "btn",
+                        }
+                    },
+                    {
+                        title: "DocsSrc",
+                        field: "docsSrc",
+                        visible: false,
+                    },
+                ],
             },
-            {
-                title: "Image",
-                field: "id",
-                visible: true,
-                frozen: true,
-                resizable: false,
-                rowHandle: true,
-                headerSort: false,
-                hozAlign: "center",
-                formatter: formatterImage,
-                formatterParams: {
-                    urlPrefix: "./assets/boards/",
-                    urlSuffix: "_board_1.jpg",
-                    width: "100px",
-                    height: "50px",
-                    loading: "lazy",
-                    cssClass: "object-fit-contain",     // https://getbootstrap.com/docs/5.3/utilities/object-fit/
-                },
+            {   // CONTROLLER
+                title: "Controller",
+                columns: [
+                    {
+                        title: "Chip",
+                        field: "chip",
+                        visible: true,
+                    },
+                    {
+                        title: "Docs",
+                        field: "chip",
+                        visible: true,
+                        resizable: false,
+                        headerSort: false,
+                        hozAlign: "center",
+                        formatter: formatterLink,
+                        formatterParams: {
+                            urlPrefix: "./assets/chips/",
+                            urlSuffix: "_datasheet_1.pdf",
+                            target: "_blank",
+                            label: "<i class='bi bi-file-earmark-ruled'></i>",
+                            // cssClass: "btn",
+                        }
+                    },
+                    {
+                        title: "cDocsSrc",
+                        field: "cDocsSrc",
+                        visible: false,
+                    },
+                    {
+                        title: "Clock",
+                        field: "clock",
+                        visible: true,
+                        formatter: formatterUOM,
+                        formatterParams: {
+                            precision: 1,
+                            thousand: ".",
+                            decimal: ",",
+                            symbol: ["Hz", "KHz", "MHz", "GHz"],
+                            base: 1000,
+                            cut: 750,
+                        }
+                    },
+                    {
+                        title: "Cores",
+                        field: "coreCnt",
+                        visible: true,
+                    },
+                    {
+                        title: "CoreBit",
+                        field: "coreBit",
+                        visible: true,
+                    },
+                    {
+                        title: "VoltOp",
+                        field: "voltOp",
+                        visible: true,
+                        formatter: formatterUOM,
+                        formatterParams: {
+                            precision: false,
+                            thousand: ".",
+                            decimal: ",",
+                            symbol: "V",
+                        }
+                    },
+                    {
+                        title: "VoltIn",
+                        field: "voltIn",
+                        visible: true,
+                        formatter: formatterUOM,
+                        formatterParams: {
+                            precision: false,
+                            thousand: ".",
+                            decimal: ",",
+                            symbol: "V",
+                        }
+                    },
+                ],
             },
-            {
-                title: "ImageSrc",
-                field: "imageSrc",
-                visible: false,
+            {   // STORAGE
+                title: "Storage",
+                columns: [
+                    {
+                        title: "Flash",
+                        field: "sizeFlash",
+                        visible: true,
+                        formatter: formatterUOM,
+                        formatterParams: {
+                            precision: 1,
+                            thousand: ".",
+                            decimal: ",",
+                            symbol: ["B", "KB", "MB", "GB", "TB"],
+                            base: 1024,
+                            cut: 768,
+                        }
+                    },
+                    {
+                        title: "FlashFree",
+                        field: "sizeFlashFree",
+                        visible: true,
+                        formatter: formatterUOM,
+                        formatterParams: {
+                            precision: 1,
+                            thousand: ".",
+                            decimal: ",",
+                            symbol: ["B", "KB", "MB", "GB", "TB"],
+                            base: 1024,
+                            cut: 768,
+                        }
+                    },
+                    {
+                        title: "RAM",
+                        field: "sizeRAM",
+                        visible: true,
+                        formatter: formatterUOM,
+                        formatterParams: {
+                            precision: 1,
+                            thousand: ".",
+                            decimal: ",",
+                            symbol: ["B", "KB", "MB", "GB", "TB"],
+                            base: 1024,
+                            cut: 768,
+                        }
+                    },
+                    {
+                        title: "EPROM",
+                        field: "sizeEPROM",
+                        visible: true,
+                        formatter: formatterUOM,
+                        formatterParams: {
+                            precision: 1,
+                            thousand: ".",
+                            decimal: ",",
+                            symbol: ["B", "KB", "MB", "GB", "TB"],
+                            base: 1024,
+                            cut: 768,
+                        }
+                    },
+                ],
             },
-            {
-                title: "Link",
-                field: "link",
-                visible: true,
-                resizable: false,
-                headerSort: false,
-                hozAlign: "center",
-                formatter: formatterLink,
-                formatterParams: {
-                    urlPrefix: "",
-                    urlSuffix: "",
-                    target: "_blank",
-                    label: "<i class='bi bi-box-arrow-up-right'></i>",
-                    // cssClass: "btn",
-                }
+            {   // PINS
+                title: "Pins",
+                columns: [
+                    {
+                        title: "Pinout",
+                        field: "id",
+                        visible: true,
+                        resizable: false,
+                        headerSort: false,
+                        hozAlign: "center",
+                        formatter: formatterImage,
+                        formatterParams: {
+                            urlPrefix: "./assets/boards/",
+                            urlSuffix: "_pinout_1.jpg",
+                            height: "50px",
+                            width: "50px",
+                            loading: "lazy",
+                            cssClass: "object-fit-contain",     // https://getbootstrap.com/docs/5.3/utilities/object-fit/
+                        },
+                    },
+                    {
+                        title: "PinoutSrc",
+                        field: "pinoutSrc",
+                        visible: false,
+                    },
+                    {
+                        title: "GPIO",
+                        field: "cntGPIO",
+                        visible: true,
+                    },
+                    {
+                        title: "Digital",
+                        field: "cntDigital",
+                        visible: true,
+                    },
+                    {
+                        title: "Analog",
+                        field: "cntAnalog",
+                        visible: true,
+                    },
+                    {
+                        title: "AnalogBit",
+                        field: "analogBit",
+                        visible: true,
+                    },
+                    {
+                        title: "PWM",
+                        field: "cntPWM",
+                        visible: true,
+                    },
+                ],
             },
-            {
-                title: "Price",
-                field: "price",
-                visible: true,
-                formatter: "money",
-                formatterParams: {
-                    decimal: ",",
-                    thousand: ".",
-                    symbol: "€",
-                    symbolAfter: true,
-                    negativeSign: "-",
-                    precision: 1,
-                }
+            {   // CONNECTIVITY
+                title: "Connectivity",
+                columns: [
+                    {
+                        title: "UART",
+                        field: "laneUART",
+                        visible: true,
+                    },
+                    {
+                        title: "I2C",
+                        field: "laneI2C",
+                        visible: true,
+                    },
+                    {
+                        title: "SPI",
+                        field: "laneSPI",
+                        visible: true,
+                    },
+                    {
+                        title: "Protocol",
+                        field: "protocol",
+                        visible: true,
+                    },
+                    {
+                        title: "Edge",
+                        field: "castellatedEdge",
+                        visible: true,
+                        formatter: "tickCross",
+                        formatterParams: {
+                            allowEmpty: true,
+                            allowTruthy: true,
+                        }
+                    },
+                ],
             },
-            {
-                title: "Width",
-                field: "dimX",
-                visible: true,
-                formatter: formatterUOM,
-                formatterParams: {
-                    precision: 0,
-                    symbol: ["Pin", "Pins"],
-                    base: 1,
-                }
-            },
-            {
-                title: "Height",
-                field: "dimY",
-                visible: true,
-                formatter: formatterUOM,
-                formatterParams: {
-                    precision: 0,
-                    symbol: ["Pin", "Pins"],
-                    base: 1,
-                }
-            },
-            {
-                title: "Connector",
-                field: "connector",
-                visible: true,
-            },
-            {
-                title: "Docs",
-                field: "id",
-                visible: true,
-                resizable: false,
-                headerSort: false,
-                hozAlign: "center",
-                formatter: formatterLink,
-                formatterParams: {
-                    urlPrefix: "./assets/boards/",
-                    urlSuffix: "_datasheet_1.pdf",
-                    target: "_blank",
-                    label: "<i class='bi bi-file-earmark-ruled'></i>",
-                    // cssClass: "btn",
-                }
-            },
-            {
-                title: "DocsSrc",
-                field: "docsSrc",
-                visible: false,
-            },
-            {
-                title: "Chip",
-                field: "chip",
-                visible: true,
-            },
-            {
-                title: "Docs",
-                field: "chip",
-                visible: true,
-                resizable: false,
-                headerSort: false,
-                hozAlign: "center",
-                formatter: formatterLink,
-                formatterParams: {
-                    urlPrefix: "./assets/chips/",
-                    urlSuffix: "_datasheet_1.pdf",
-                    target: "_blank",
-                    label: "<i class='bi bi-file-earmark-ruled'></i>",
-                    // cssClass: "btn",
-                }
-            },
-            {
-                title: "cDocsSrc",
-                field: "cDocsSrc",
-                visible: false,
-            },
-            {
-                title: "Clock",
-                field: "clock",
-                visible: true,
-                formatter: formatterUOM,
-                formatterParams: {
-                    precision: 1,
-                    thousand: ".",
-                    decimal: ",",
-                    symbol: ["Hz", "KHz", "MHz", "GHz"],
-                    base: 1000,
-                    cut: 750,
-                }
-            },
-            {
-                title: "Cores",
-                field: "coreCnt",
-                visible: true,
-            },
-            {
-                title: "CoreBit",
-                field: "coreBit",
-                visible: true,
-            },
-            {
-                title: "VoltOp",
-                field: "voltOp",
-                visible: true,
-                formatter: formatterUOM,
-                formatterParams: {
-                    precision: false,
-                    thousand: ".",
-                    decimal: ",",
-                    symbol: "V",
-                }
-            },
-            {
-                title: "VoltIn",
-                field: "voltIn",
-                visible: true,
-                formatter: formatterUOM,
-                formatterParams: {
-                    precision: false,
-                    thousand: ".",
-                    decimal: ",",
-                    symbol: "V",
-                }
-            },
-            {
-                title: "Flash",
-                field: "sizeFlash",
-                visible: true,
-                formatter: formatterUOM,
-                formatterParams: {
-                    precision: 1,
-                    thousand: ".",
-                    decimal: ",",
-                    symbol: ["B", "KB", "MB", "GB", "TB"],
-                    base: 1024,
-                    cut: 768,
-                }
-            },
-            {
-                title: "FlashFree",
-                field: "sizeFlashFree",
-                visible: true,
-                formatter: formatterUOM,
-                formatterParams: {
-                    precision: 1,
-                    thousand: ".",
-                    decimal: ",",
-                    symbol: ["B", "KB", "MB", "GB", "TB"],
-                    base: 1024,
-                    cut: 768,
-                }
-            },
-            {
-                title: "RAM",
-                field: "sizeRAM",
-                visible: true,
-                formatter: formatterUOM,
-                formatterParams: {
-                    precision: 1,
-                    thousand: ".",
-                    decimal: ",",
-                    symbol: ["B", "KB", "MB", "GB", "TB"],
-                    base: 1024,
-                    cut: 768,
-                }
-            },
-            {
-                title: "EPROM",
-                field: "sizeEPROM",
-                visible: true,
-                formatter: formatterUOM,
-                formatterParams: {
-                    precision: 1,
-                    thousand: ".",
-                    decimal: ",",
-                    symbol: ["B", "KB", "MB", "GB", "TB"],
-                    base: 1024,
-                    cut: 768,
-                }
-            },
-            {
-                title: "Pinout",
-                field: "id",
-                visible: true,
-                resizable: false,
-                headerSort: false,
-                hozAlign: "center",
-                formatter: formatterImage,
-                formatterParams: {
-                    urlPrefix: "./assets/boards/",
-                    urlSuffix: "_pinout_1.jpg",
-                    height: "50px",
-                    width: "50px",
-                    loading: "lazy",
-                    cssClass: "object-fit-contain",     // https://getbootstrap.com/docs/5.3/utilities/object-fit/
-                },
-            },
-            {
-                title: "PinoutSrc",
-                field: "pinoutSrc",
-                visible: false,
-            },
-            {
-                title: "GPIO",
-                field: "cntGPIO",
-                visible: true,
-            },
-            {
-                title: "Digital",
-                field: "cntDigital",
-                visible: true,
-            },
-            {
-                title: "Analog",
-                field: "cntAnalog",
-                visible: true,
-            },
-            {
-                title: "AnalogBit",
-                field: "analogBit",
-                visible: true,
-            },
-            {
-                title: "PWM",
-                field: "cntPWM",
-                visible: true,
-            },
-            {
-                title: "UART",
-                field: "laneUART",
-                visible: true,
-            },
-            {
-                title: "I2C",
-                field: "laneI2C",
-                visible: true,
-            },
-            {
-                title: "SPI",
-                field: "laneSPI",
-                visible: true,
-            },
-            {
-                title: "Protocol",
-                field: "protocol",
-                visible: true,
-            },
-            {
-                title: "Edge",
-                field: "castellatedEdge",
-                visible: true,
-                formatter: "tickCross",
-                formatterParams: {
-                    allowEmpty: true,
-                    allowTruthy: true,
-                }
-            },
-            {
-                title: "Platform",
-                field: "platform",
-                visible: true,
-            },
-            {
-                title: "Comment",
-                field: "comment",
-                visible: true,
-                formatter: "textarea",
+            {   // MISCELLANEOUS
+                title: "Miscellaneous",
+                columns: [
+                    {
+                        title: "Platform",
+                        field: "platform",
+                        visible: true,
+                    },
+                    {
+                        title: "Comment",
+                        field: "comment",
+                        visible: true,
+                        formatter: "textarea",
+                    },
+                ],
             },
         ],
     });
 }
-// TODO add column grouping https://tabulator.info/docs/6.2/columns#groups
 // TODO implement nested data e.g. for controllers https://tabulator.info/docs/6.2/columns#field-nesting
 // TODO custom sort icon in header? https://icons.getbootstrap.com/icons/caret-up/ https://icons.getbootstrap.com/icons/caret-up-fill/
 // TODO filtering https://tabulator.info/docs/6.2/options#filter
