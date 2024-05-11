@@ -298,10 +298,18 @@ function loadBoardTable(element) {
             },
             {
                 title: "Pinout",
-                field: "pinout",
+                field: "id",
                 visible: true,
-                hozAlign: "center",
                 resizable: false,
+                headerSort: false,
+                hozAlign: "center",
+                formatter: "image",
+                formatterParams: {
+                    height: "50px",
+                    width: "50px",
+                    urlPrefix: "./assets/boards/",
+                    urlSuffix: "_pinout_1.jpg",
+                },
             },
             {
                 title: "PinoutSrc",
