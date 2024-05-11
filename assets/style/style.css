@@ -2,5 +2,29 @@
  * File containing custom css styling.
  */
 
- /* TODO unify styling with bootsrap */
- /* TODO optimize space consumption (e.g. decreasing paddings) */
+/* TODO unify styling with bootsrap */
+
+.tabulator .tabulator-row .tabulator-cell {
+    border-right: 1px solid #dee2e6;
+    padding: 5px;
+}
+
+.tabulator .tabulator-header .tabulator-col {
+    border-right: 1px solid #dee2e6;
+}
+
+.tabulator .tabulator-header .tabulator-col .tabulator-col-content {
+    padding: 5px;
+}
+
+.tabulator .tabulator-header .tabulator-col.tabulator-sortable .tabulator-col-title {
+    padding-right: 15px;
+}
+
+
+
+
+.tabulator .tabulator-footer .tabulator-page {
+    margin: 0 0 0 0;
+    padding: 2px 8px
+}
