@@ -412,13 +412,14 @@ const formatterLink = function (cell, formatterParams, onRendered) {
  * @returns {string} formatted string.
  */
 const formatterUOM = function (cell, formatterParams, onRendered) {
-    let value = parseFloat(cell.getValue());
-    let base = formatterParams.base;
+    let base = formatterParams.base || 0;
     let cut = formatterParams.cut || base;
     let precision = formatterParams.precision || false;
     let decimal = formatterParams.decimal || ".";
     let thousand = formatterParams.thousand || ",";
     let symbol = formatterParams.symbol || "";
+
+    let value = parseFloat(cell.getValue());
 
     if (isNaN(value))
         return "ERROR";
@@ -439,19 +440,59 @@ const formatterUOM = function (cell, formatterParams, onRendered) {
         symbol = symbol[index];
     }
 
-    if (precision !== false)
-        value = value.toFixed(precision)
-
-    if (decimal !== false)
-        value = String(value).replace(".", decimal);
-
-    if (thousand !== false) {
-        let rgx = /(\d+)(\d{3})/;
-        while (rgx.test(value))
-            value = value.replace(rgx, "$1" + thousand + "$2");
-    }
+    value = applyPrecision(value, precision);
+    value = applyDecimalSeparator(value, decimal);
+    value = applyThousandSeparator(value, thousand);
 
     return value + symbol;
+}
+
+// #endregion
+
+
+// #region helpers
+
+/**
+ * Applies a given precision to a numeric value.
+ * @param {number} value numeric value to which precision will be applied.
+ * @param {number|false} precision number of decimal digits (false skips precision).
+ * @returns {string} numeric string with specified precision applied.
+ */
+function applyPrecision(value, precision) {
+    if (precision !== false) {
+        return value.toFixed(precision);
+    }
+    return String(value);
+}
+
+/**
+ * Applies a given decimal separator to a numeric string.
+ * @param {string} value numeric string to which separator will be applied.
+ * @param {string|false} sep used decimal separator (false skips separator).
+ * @returns {string} numeric string with separator applied.
+ */
+function applyDecimalSeparator(value, sep) {
+    if (sep !== false) {
+        return value.replace(".", sep);
+    }
+    return value;
+}
+
+/**
+ * Applies a given thousand separator to a numeric string.
+ * @param {string} value numeric string to which separator will be applied.
+ * @param {string|false} sep used thousand separator (false skips separator).
+ * @returns {string} numeric string with separator applied.
+ */
+function applyThousandSeparator(value, sep) {
+    const rgx = /(\d+)(\d{3})/;
+
+    if (sep !== false) {
+        while (rgx.test(value)) {
+            value = value.replace(rgx, "$1" + sep + "$2");
+        }
+    }
+    return value;
 }
 
 // #endregion
