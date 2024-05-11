@@ -410,7 +410,7 @@ function loadBoardTable(element) {
 /**
  * Custom Formatter for handling advanced links (e.g. icons).
  * @param {CellComponent} cell component of cell.
- * @param {{}} formatterParams parameters set for formatter.
+ * @param {object} formatterParams parameters set for formatter.
  * @param {EmptyCallback} onRendered function to call when formatter has been rendered.
  * @returns {HTMLAnchorElement} formatted link element.
  */
@@ -423,7 +423,7 @@ const formatterLink = function (cell, formatterParams, onRendered) {
     let label = formatterParams.label;
     let cssClass = formatterParams.cssClass;
 
-    let el = document.createElement("a")
+    const el = document.createElement("a")
     el.href = urlPrefix + cell.getValue() + urlSuffix;
     el.innerHTML = label;
 
