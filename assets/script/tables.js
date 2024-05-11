@@ -55,6 +55,9 @@ function loadBoardTable(element) {
                 field: "id",
                 visible: false,
                 frozen: true,
+                resizable: false,
+                rowHandle: true,
+                headerSort: false,
             },
             {
                 title: "Name",
@@ -67,8 +70,8 @@ function loadBoardTable(element) {
                 title: "Image",
                 field: "id",
                 visible: true,
-                resizable: false,
                 frozen: true,
+                resizable: false,
                 rowHandle: true,
                 headerSort: false,
                 hozAlign: "center",
@@ -77,7 +80,7 @@ function loadBoardTable(element) {
                     height: "50px",
                     width: "100px",
                     urlPrefix: "./assets/boards/",
-                    urlSuffix: "_1.jpg",
+                    urlSuffix: "_board_1.jpg",
                 },
             },
             {
@@ -122,7 +125,7 @@ function loadBoardTable(element) {
                 formatter: formatterUOM,
                 formatterParams: {
                     precision: 0,
-                    symbol: [" Pin", " Pins"],
+                    symbol: ["Pin", "Pins"],
                     base: 1,
                 }
             },
@@ -133,37 +136,55 @@ function loadBoardTable(element) {
                 formatter: formatterUOM,
                 formatterParams: {
                     precision: 0,
-                    symbol: [" Pin", " Pins"],
+                    symbol: ["Pin", "Pins"],
                     base: 1,
                 }
             },
             {
-                title: "Datasheet",
-                field: "datasheet",
+                title: "Docs",
+                field: "id",
                 visible: true,
-                hozAlign: "center",
                 resizable: false,
+                headerSort: false,
+                hozAlign: "center",
+                formatter: formatterLink,
+                formatterParams: {
+                    urlPrefix: "./assets/boards/",
+                    urlSuffix: "_datasheet_1.pdf",
+                    target: "_blank",
+                    label: "<i class='bi bi-file-earmark-ruled'></i>",
+                    // cssClass: "btn",
+                }
             },
             {
-                title: "DatasheetSrc",
-                field: "datasheetSrc",
+                title: "DocsSrc",
+                field: "docsSrc",
                 visible: false,
             },
             {
-                title: "Controller",
-                field: "controller",
+                title: "Chip",
+                field: "chip",
                 visible: true,
             },
             {
-                title: "Datasheet",
-                field: "cDatasheet",
+                title: "Docs",
+                field: "chip",
                 visible: true,
-                hozAlign: "center",
                 resizable: false,
+                headerSort: false,
+                hozAlign: "center",
+                formatter: formatterLink,
+                formatterParams: {
+                    urlPrefix: "./assets/chips/",
+                    urlSuffix: "_datasheet_1.pdf",
+                    target: "_blank",
+                    label: "<i class='bi bi-file-earmark-ruled'></i>",
+                    // cssClass: "btn",
+                }
             },
             {
-                title: "DatasheetSrc",
-                field: "cDatasheetSrc",
+                title: "cDocsSrc",
+                field: "cDocsSrc",
                 visible: false,
             },
             {
