@@ -415,13 +415,15 @@ function loadBoardTable(element) {
  * @returns {HTMLAnchorElement} formatted link element.
  */
 const formatterLink = function (cell, formatterParams, onRendered) {
-    let urlPrefix = formatterParams.urlPrefix || "";
-    let urlSuffix = formatterParams.urlSuffix || "";
-    let download = formatterParams.download;
-    let target = formatterParams.target;
-    let type = formatterParams.type;
-    let label = formatterParams.label;
-    let cssClass = formatterParams.cssClass;
+    const {
+        urlPrefix = "",
+        urlSuffix = "",
+        download,
+        target,
+        type,
+        label,
+        cssClass,
+    } = formatterParams;
 
     const el = document.createElement("a")
     el.href = urlPrefix + cell.getValue() + urlSuffix;
@@ -442,7 +444,6 @@ const formatterLink = function (cell, formatterParams, onRendered) {
     return el;
 }
 
-// TODO use object destructuring to simplify parameter handling.
 // TODO specify formatterParams in jsDocs
 // TODO use srcset and sizes https://www.google.com/search?client=firefox-b-d&q=img+srcset
 /**
@@ -453,15 +454,17 @@ const formatterLink = function (cell, formatterParams, onRendered) {
  * @returns {HTMLImageElement} formatted img element.
  */
 function formatterImage(cell, formatterParams, onRendered) {
-    let urlPrefix = formatterParams.urlPrefix || "";
-    let urlSuffix = formatterParams.urlSuffix || "";
-    let width = formatterParams.width;
-    let height = formatterParams.height;
-    let alt = formatterParams.alt;
-    let loading = formatterParams.loading || "eager";
-    let srcset = formatterParams.srcset;
-    let sizes = formatterParams.sizes;
-    let cssClass = formatterParams.cssClass;
+    const {
+        urlPrefix = "",
+        urlSuffix = "",
+        width,
+        height,
+        alt,
+        loading = "eager",
+        srcset,
+        sizes,
+        cssClass
+    } = formatterParams;
 
     const el = document.createElement("img");
     el.src = urlPrefix + cell.getValue() + urlSuffix;
@@ -500,12 +503,14 @@ function formatterImage(cell, formatterParams, onRendered) {
  * @returns {string} formatted string.
  */
 const formatterUOM = function (cell, formatterParams, onRendered) {
-    let base = formatterParams.base || 0;
-    let cut = formatterParams.cut || base;
-    let precision = formatterParams.precision || false;
-    let decimal = formatterParams.decimal || ".";
-    let thousand = formatterParams.thousand || ",";
-    let symbol = formatterParams.symbol || "";
+    let {
+        base = 0,
+        cut = base,
+        precision = false,
+        decimal = ".",
+        thousand = ",",
+        symbol = "",
+    } = formatterParams;
 
     let value = parseFloat(cell.getValue());
 
