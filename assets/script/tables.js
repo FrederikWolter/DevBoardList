@@ -75,12 +75,14 @@ function loadBoardTable(element) {
                 rowHandle: true,
                 headerSort: false,
                 hozAlign: "center",
-                formatter: "image",
+                formatter: formatterImage,
                 formatterParams: {
-                    height: "50px",
-                    width: "100px",
                     urlPrefix: "./assets/boards/",
                     urlSuffix: "_board_1.jpg",
+                    width: "100px",
+                    height: "50px",
+                    loading: "lazy",
+                    cssClass: "object-fit-contain",     // https://getbootstrap.com/docs/5.3/utilities/object-fit/
                 },
             },
             {
@@ -303,12 +305,14 @@ function loadBoardTable(element) {
                 resizable: false,
                 headerSort: false,
                 hozAlign: "center",
-                formatter: "image",
+                formatter: formatterImage,
                 formatterParams: {
-                    height: "50px",
-                    width: "50px",
                     urlPrefix: "./assets/boards/",
                     urlSuffix: "_pinout_1.jpg",
+                    height: "50px",
+                    width: "50px",
+                    loading: "lazy",
+                    cssClass: "object-fit-contain",     // https://getbootstrap.com/docs/5.3/utilities/object-fit/
                 },
             },
             {
@@ -392,7 +396,6 @@ function loadBoardTable(element) {
 // TODO add row grouping option e.g. for controller column: https://tabulator.info/docs/6.2/options#group
 // TODO setup persistance? https://tabulator.info/docs/6.2/persist
 // TODO add selection? https://tabulator.info/docs/6.2/range#clipboard
-// TODO fix image scaling https://getbootstrap.com/docs/5.3/utilities/object-fit/
 // TODO add big image view (possibly with multiple images) https://stackoverflow.com/a/76806304
 
 
@@ -439,6 +442,55 @@ const formatterLink = function (cell, formatterParams, onRendered) {
     return el;
 }
 
+// TODO use object destructuring to simplify parameter handling.
+// TODO specify formatterParams in jsDocs
+// TODO use srcset and sizes https://www.google.com/search?client=firefox-b-d&q=img+srcset
+/**
+ * Custom Formatter for handling advanced images.
+ * @param {CellComponent} cell component of cell.
+ * @param {object} formatterParams parameters set for formatter.
+ * @param {function} onRendered function to call when formatter has been rendered.
+ * @returns {HTMLImageElement} formatted img element.
+ */
+function formatterImage(cell, formatterParams, onRendered) {
+    let urlPrefix = formatterParams.urlPrefix || "";
+    let urlSuffix = formatterParams.urlSuffix || "";
+    let width = formatterParams.width;
+    let height = formatterParams.height;
+    let alt = formatterParams.alt;
+    let loading = formatterParams.loading || "eager";
+    let srcset = formatterParams.srcset;
+    let sizes = formatterParams.sizes;
+    let cssClass = formatterParams.cssClass;
+
+    const el = document.createElement("img");
+    el.src = urlPrefix + cell.getValue() + urlSuffix;
+
+    if (width)
+        el.style.width = width;
+
+    if (height)
+        el.style.height = height;
+
+    if (alt)
+        el.alt = alt;
+
+    if (loading)
+        el.loading = loading;
+
+    if (srcset)
+        el.srcset = srcset;
+
+    if (sizes)
+        el.sizes = sizes;
+
+    if (cssClass)
+        el.className = cssClass;
+
+    el.addEventListener("load", () => cell.getRow().normalizeHeight());
+
+    return el;
+}
 
 /**
  * Custom Formatter for handling measured values and their order of magnitude.
