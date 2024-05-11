@@ -143,6 +143,11 @@ function loadBoardTable(element) {
                 }
             },
             {
+                title: "Connector",
+                field: "connector",
+                visible: true,
+            },
+            {
                 title: "Docs",
                 field: "id",
                 visible: true,
@@ -236,11 +241,6 @@ function loadBoardTable(element) {
                     decimal: ",",
                     symbol: "V",
                 }
-            },
-            {
-                title: "Connector",
-                field: "connector",
-                visible: true,
             },
             {
                 title: "Flash",
