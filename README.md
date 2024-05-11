@@ -14,6 +14,12 @@
 - **Hosting**: [GitHub Pages](https://pages.github.com/)
 - **Frontend**: HTML, CSS, JavaScript
 - **Storage**: Static in file
+- **Libraries**:
+  - [Tabulator](https://tabulator.info/): creating interactive tables, enhancing data visualization and user experience.
+  - [jQuery](https://jquery.com/): simplifying DOM manipulation and event handling tasks, streamlining development.
+  - [NodeJs](https://nodejs.org/en): type checking purposes, ensuring code integrity and reducing runtime errors - not involved in code execution.
+  - [Bootstrap](https://getbootstrap.com/): providing framework for front-end development, pre-styled components and a responsive grid system.
+  - [Bootstrap Icons](https://icons.getbootstrap.com/): adding visually appealing and consistent iconography throughout the project's interface, improving usability.
 
 
 ## Documentation
