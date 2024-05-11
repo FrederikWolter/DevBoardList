@@ -50,51 +50,45 @@ function loadBoardTable(element) {
         columnDefaults: {},
         /** Set column definition. @see https://tabulator.info/docs/6.2/columns */
         columns: [
-            {   // BOARD
-                title: "Board",
+            {
+                title: "ID",
+                field: "id",
+                visible: false,
                 frozen: true,
-                columns: [
-                    {
-                        title: "ID",
-                        field: "id",
-                        visible: false,
-                        frozen: true,
-                        resizable: false,
-                        rowHandle: true,
-                        headerSort: false,
-                    },
-                    {
-                        title: "Name",
-                        field: "name",
-                        visible: true,
-                        frozen: true,
-                        rowHandle: true,
-                    },
-                    {
-                        title: "Image",
-                        field: "id",
-                        visible: true,
-                        frozen: true,
-                        resizable: false,
-                        rowHandle: true,
-                        headerSort: false,
-                        hozAlign: "center",
-                        formatter: formatterImage,
-                        formatterParams: {
-                            urlPrefix: "./assets/boards/",
-                            urlSuffix: "_board_1.jpg",
-                            width: "100px",
-                            height: "50px",
-                            loading: "lazy",
-                            cssClass: "object-fit-contain",     // https://getbootstrap.com/docs/5.3/utilities/object-fit/
-                        },
-                    },
-                    {
-                        title: "ImageSrc",
-                        field: "imageSrc",
-                        visible: false,
-                    },
-                ],
+                resizable: false,
+                rowHandle: true,
+                headerSort: false,
+            },
+            {
+                title: "Name",
+                field: "name",
+                visible: true,
+                frozen: true,
+                rowHandle: true,
+            },
+            {
+                title: "Image",
+                field: "id",
+                visible: true,
+                frozen: true,
+                resizable: false,
+                rowHandle: true,
+                headerSort: false,
+                hozAlign: "center",
+                formatter: formatterImage,
+                formatterParams: {
+                    urlPrefix: "./assets/boards/",
+                    urlSuffix: "_board_1.jpg",
+                    width: "100px",
+                    height: "50px",
+                    loading: "lazy",
+                    cssClass: "object-fit-contain",     // https://getbootstrap.com/docs/5.3/utilities/object-fit/
+                },
+            },
+            {
+                title: "ImageSrc",
+                field: "imageSrc",
+                visible: false,
             },
             {   // GENERAL
                 title: "General",
