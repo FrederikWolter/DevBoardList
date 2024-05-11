@@ -170,6 +170,15 @@ function loadBoardTable(element) {
                 title: "Clock",
                 field: "clock",
                 visible: true,
+                formatter: formatterUOM,
+                formatterParams: {
+                    precision: 1,
+                    thousand: ".",
+                    decimal: ",",
+                    symbol: ["Hz", "KHz", "MHz", "GHz"],
+                    base: 1000,
+                    cut: 750,
+                }
             },
             {
                 title: "Cores",
