@@ -362,9 +362,14 @@ function loadBoardTable(element) {
                 visible: true,
             },
             {
-                title: "Castl.",
+                title: "Edge",
                 field: "castellatedEdge",
                 visible: true,
+                formatter: "tickCross",
+                formatterParams: {
+                    allowEmpty: true,
+                    allowTruthy: true,
+                }
             },
             {
                 title: "Platform",
