@@ -3,6 +3,8 @@
  */
 
 
+// TODO add UOMFactors
+// TODO use UOMFactors globally?
 // TODO document/comment types https://stackoverflow.com/a/32139970
 /**
  * Function returning list of boards.
