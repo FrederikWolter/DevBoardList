@@ -342,14 +342,13 @@ function loadBoardTable(element) {
 }
 // TODO add column grouping https://tabulator.info/docs/6.2/columns#groups
 // TODO implement nested data e.g. for controllers https://tabulator.info/docs/6.2/columns#field-nesting
-// TODO custom formatter for human readable storageSpace
 // TODO custom sort icon in header? https://icons.getbootstrap.com/icons/caret-up/ https://icons.getbootstrap.com/icons/caret-up-fill/
 // TODO filtering https://tabulator.info/docs/6.2/options#filter
-// TODO add grouping option e.g. for controller column: https://tabulator.info/docs/6.2/options#group
+// TODO add row grouping option e.g. for controller column: https://tabulator.info/docs/6.2/options#group
 // TODO setup persistance? https://tabulator.info/docs/6.2/persist
 // TODO add selection? https://tabulator.info/docs/6.2/range#clipboard
 // TODO fix image scaling https://getbootstrap.com/docs/5.3/utilities/object-fit/
-// TODO add bit image view (possibly with multiple images) https://stackoverflow.com/a/76806304
+// TODO add big image view (possibly with multiple images) https://stackoverflow.com/a/76806304
 
 
 // TODO https://tabulator.info/docs/6.2/options#print
