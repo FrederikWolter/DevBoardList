@@ -438,27 +438,17 @@ function formatterImage(cell, params, onRendered) {
 
     const el = document.createElement("img");
     el.src = urlPrefix + cell.getValue() + urlSuffix;
+    el.loading = loading;
+    el.className = cssClass;
+    el.sizes = sizes;
 
-    if (width)
-        el.style.width = width;
-
-    if (height)
-        el.style.height = height;
+    el.style.width = width;
+    el.style.height = height;
 
     if (alt)
         el.alt = alt;
-
-    if (loading)
-        el.loading = loading;
-
     if (srcset)
-        el.srcset = srcset;
-
-    if (sizes)
-        el.sizes = sizes;
-
-    if (cssClass)
-        el.className = cssClass;
+        el.srcset = srcset;  
 
     el.addEventListener("load", () => cell.getRow().normalizeHeight());
 
