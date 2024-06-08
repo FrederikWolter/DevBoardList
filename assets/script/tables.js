@@ -480,34 +480,34 @@ function formatterImage(cell, params, onRendered) {
  * @returns {string} formatted string.
  */
 const formatterUOM = function (cell, params, onRendered) {
-    let {
+    const {
         base = 0,
         cut = base,
         precision = false,
         decimal = ".",
         thousand = ",",
-        symbol = "",
+        symbols = [""],
     } = params;
 
     let value = parseFloat(cell.getValue());
+    let symbol = symbols[0];
 
     if (isNaN(value))
         return "ERROR";
 
     if (base === 1)
-        symbol = value === 1 ? symbol[0] : symbol[1];
-
+        symbol = value === 1 ? symbols[0] : symbols[1];
     if (base > 1) {
         let index = 0;
-        while (value >= base && index < symbol.length - 1) {
+        while (value >= base && index < symbols.length - 1) {
             value /= base;
             index++;
         }
-        if (value >= cut && index < symbol.length - 1) {
+        if (value >= cut && index < symbols.length - 1) {
             value /= base;
             index++;
         }
-        symbol = symbol[index];
+        symbol = symbols[index];
     }
 
     value = applyPrecision(value, precision);
