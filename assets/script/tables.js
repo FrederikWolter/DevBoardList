@@ -439,11 +439,11 @@ function loadBoardTable(element) {
 /**
  * Custom Formatter for handling advanced links (e.g. icons).
  * @param {CellComponent} cell component of cell.
- * @param {object} formatterParams parameters set for formatter.
- * @param {EmptyCallback} onRendered function to call when formatter has been rendered.
+ * @param {object} params parameters set for formatter.
+ * @param {Callback} onRendered callback when formatter has been rendered.
  * @returns {HTMLAnchorElement} formatted link element.
  */
-const formatterLink = function (cell, formatterParams, onRendered) {
+const formatterLink = function (cell, params, onRendered) {
     const {
         urlPrefix = "",
         urlSuffix = "",
@@ -452,7 +452,7 @@ const formatterLink = function (cell, formatterParams, onRendered) {
         type,
         label,
         cssClass,
-    } = formatterParams;
+    } = params;
 
     const el = document.createElement("a")
     el.href = urlPrefix + cell.getValue() + urlSuffix;
@@ -473,16 +473,16 @@ const formatterLink = function (cell, formatterParams, onRendered) {
     return el;
 }
 
-// TODO specify formatterParams in jsDocs
+// TODO specify params in jsDocs
 // TODO use srcset and sizes https://www.google.com/search?client=firefox-b-d&q=img+srcset
 /**
  * Custom Formatter for handling advanced images.
  * @param {CellComponent} cell component of cell.
- * @param {object} formatterParams parameters set for formatter.
- * @param {function} onRendered function to call when formatter has been rendered.
+ * @param {object} params parameters set for formatter.
+ * @param {Callback} onRendered callback when formatter has been rendered.
  * @returns {HTMLImageElement} formatted img element.
  */
-function formatterImage(cell, formatterParams, onRendered) {
+function formatterImage(cell, params, onRendered) {
     const {
         urlPrefix = "",
         urlSuffix = "",
@@ -493,7 +493,7 @@ function formatterImage(cell, formatterParams, onRendered) {
         srcset,
         sizes,
         cssClass
-    } = formatterParams;
+    } = params;
 
     const el = document.createElement("img");
     el.src = urlPrefix + cell.getValue() + urlSuffix;
@@ -527,11 +527,11 @@ function formatterImage(cell, formatterParams, onRendered) {
 /**
  * Custom Formatter for handling measured values and their order of magnitude.
  * @param {CellComponent} cell component of cell.
- * @param {{}} formatterParams parameters set for formatter.
- * @param {EmptyCallback} onRendered function to call when formatter has been rendered.
+ * @param {object} params parameters set for formatter.
+ * @param {Callback} onRendered callback when formatter has been rendered.
  * @returns {string} formatted string.
  */
-const formatterUOM = function (cell, formatterParams, onRendered) {
+const formatterUOM = function (cell, params, onRendered) {
     let {
         base = 0,
         cut = base,
@@ -539,7 +539,7 @@ const formatterUOM = function (cell, formatterParams, onRendered) {
         decimal = ".",
         thousand = ",",
         symbol = "",
-    } = formatterParams;
+    } = params;
 
     let value = parseFloat(cell.getValue());
 
