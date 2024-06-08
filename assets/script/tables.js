@@ -381,8 +381,9 @@ function loadBoardTable(element) {
 // TODO https://tabulator.info/docs/6.2/options#find-table
 // TODO https://tabulator.info/docs/6.2/options#default
 
-// #region formatters
+// TODO remove unnecessary values like visible: true
 
+// #region formatters
 /**
  * Custom Formatter for handling advanced links (e.g. icons).
  * @param {CellComponent} cell component of cell.
@@ -515,12 +516,10 @@ const formatterUOM = function (cell, params, onRendered) {
 
     return value + symbol;
 }
-
 // #endregion
 
 
 // #region formatter params
-
 /**
  * Formatter parameters for Pin UOM.
  */
