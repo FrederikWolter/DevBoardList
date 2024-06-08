@@ -483,20 +483,23 @@ const formatterUOM = function (cell, params, onRendered) {
     const {
         base = 0,
         cut = base,
-        precision = false,
-        decimal = ".",
-        thousand = ",",
         symbols = [""],
+        locale = "en-US",
+        thousand = true,
+        minIntegerDigits = 1,
+        minFractionDigits = 2,
+        maxFractionDigits = 2,
     } = params;
 
     let value = parseFloat(cell.getValue());
-    let symbol = symbols[0];
-
     if (isNaN(value))
-        return "ERROR";
+        return "NaN";
 
+    let symbol = symbols[0];
+    // singular / plural
     if (base === 1)
         symbol = value === 1 ? symbols[0] : symbols[1];
+    // order of magnitude
     if (base > 1) {
         let index = 0;
         while (value >= base && index < symbols.length - 1) {
@@ -510,9 +513,12 @@ const formatterUOM = function (cell, params, onRendered) {
         symbol = symbols[index];
     }
 
-    value = applyPrecision(value, precision);
-    value = applyDecimalSeparator(value, decimal);
-    value = applyThousandSeparator(value, thousand, decimal);
+    value = value.toLocaleString(locale, {
+        minimumIntegerDigits: minIntegerDigits,
+        minimumFractionDigits: minFractionDigits,
+        maximumFractionDigits: maxFractionDigits,
+        useGrouping: thousand,
+    })
 
     return value + symbol;
 }
@@ -524,92 +530,45 @@ const formatterUOM = function (cell, params, onRendered) {
  * Formatter parameters for Pin UOM.
  */
 const formatterParamsPin = {
-    precision: 0,
-    symbols: ["Pin", "Pins"],
     base: 1,
+    symbols: ["Pin", "Pins"],
+    minFractionDigits: 0,
 }
 
 /**
  * Formatter parameters for Memory UOM.
  */
 const formatterParamsMem = {
-    precision: 1,
-    thousand: ".",
-    decimal: ",",
-    symbols: ["B", "KB", "MB", "GB", "TB"],
     base: 1024,
     cut: 768,
+    symbols: ["B", "KB", "MB", "GB", "TB"],
+    thousand: true,
+    minFractionDigits: 0,
+    maxFractionDigits: 1,
 }
 
 /**
  * Formatter parameters for Voltage UOM.
  */
 const formatterParamsVolt = {
-    precision: false,
-    thousand: ".",
-    decimal: ",",
-    symbols: "V",
+    base: 0,
+    symbols: ["V"],
+    thousand: true,
+    minFractionDigits: 0,
+    maxFractionDigits: 1,
 }
 
 /**
  * Formatter parameters for Frequency UOM.
  */
 const formatterParamsFreq = {
-    precision: 1,
-    thousand: ".",
-    decimal: ",",
-    symbols: ["Hz", "KHz", "MHz", "GHz"],
     base: 1000,
     cut: 750,
+    symbols: ["Hz", "KHz", "MHz", "GHz"],
+    thousand: true,
+    minFractionDigits: 0,
+    maxFractionDigits: 1,
 }
-// #endregion
-
-// #region helpers
-
-/**
- * Applies a given precision to a numeric value.
- * @param {number} value numeric value to which precision will be applied.
- * @param {number|false} precision number of decimal digits (false skips precision).
- * @returns {string} numeric string with specified precision applied.
- */
-function applyPrecision(value, precision) {
-    if (precision !== false) {
-        return value.toFixed(precision);
-    }
-    return String(value);
-}
-
-/**
- * Applies a given decimal separator to a numeric string.
- * @param {string} value numeric string to which separator will be applied.
- * @param {string|false} sep used decimal separator (false skips separator).
- * @returns {string} numeric string with separator applied.
- */
-function applyDecimalSeparator(value, sep) {
-    if (sep !== false) {
-        return value.replace(".", sep);
-    }
-    return value;
-}
-
-/**
- * Applies a given thousand separator to a numeric string.
- * @param {string} value numeric string to which separator will be applied.
- * @param {string|false} sep used thousand separator (false skips separator).
- * @param {string|false} decimal present decimal point in value.
- * @returns {string} numeric string with separator applied.
- */
-function applyThousandSeparator(value, sep, decimal) {
-    decimal = decimal || ".";
-    // see https://stackoverflow.com/a/2901298
-    const rgx = new RegExp(`\\B(?<!${"\\" + decimal}\\d*)(?=(\\d{3})+(?!\\d))`, "g");
-
-    if (sep !== false) {
-        value = value.replace(rgx, sep);
-    }
-    return value;
-}
-
 // #endregion
 
 // // @ts-check
