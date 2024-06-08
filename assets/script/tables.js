@@ -128,22 +128,14 @@ function loadBoardTable(element) {
                         field: "dimX",
                         visible: true,
                         formatter: formatterUOM,
-                        formatterParams: {
-                            precision: 0,
-                            symbol: ["Pin", "Pins"],
-                            base: 1,
-                        }
+                        formatterParams: formatterParamsPin,
                     },
                     {
                         title: "Height",
                         field: "dimY",
                         visible: true,
                         formatter: formatterUOM,
-                        formatterParams: {
-                            precision: 0,
-                            symbol: ["Pin", "Pins"],
-                            base: 1,
-                        }
+                        formatterParams: formatterParamsPin,
                     },
                     {
                         title: "Connector",
@@ -207,14 +199,7 @@ function loadBoardTable(element) {
                         field: "clock",
                         visible: true,
                         formatter: formatterUOM,
-                        formatterParams: {
-                            precision: 1,
-                            thousand: ".",
-                            decimal: ",",
-                            symbol: ["Hz", "KHz", "MHz", "GHz"],
-                            base: 1000,
-                            cut: 750,
-                        }
+                        formatterParams: formatterParamsFreq,
                     },
                     {
                         title: "Cores",
@@ -231,24 +216,14 @@ function loadBoardTable(element) {
                         field: "voltOp",
                         visible: true,
                         formatter: formatterUOM,
-                        formatterParams: {
-                            precision: false,
-                            thousand: ".",
-                            decimal: ",",
-                            symbol: "V",
-                        }
+                        formatterParams: formatterParamsVolt,
                     },
                     {
                         title: "VoltIn",
                         field: "voltIn",
                         visible: true,
                         formatter: formatterUOM,
-                        formatterParams: {
-                            precision: false,
-                            thousand: ".",
-                            decimal: ",",
-                            symbol: "V",
-                        }
+                        formatterParams: formatterParamsVolt,
                     },
                 ],
             },
@@ -260,56 +235,28 @@ function loadBoardTable(element) {
                         field: "sizeFlash",
                         visible: true,
                         formatter: formatterUOM,
-                        formatterParams: {
-                            precision: 1,
-                            thousand: ".",
-                            decimal: ",",
-                            symbol: ["B", "KB", "MB", "GB", "TB"],
-                            base: 1024,
-                            cut: 768,
-                        }
+                        formatterParams: formatterParamsMem,
                     },
                     {
                         title: "FlashFree",
                         field: "sizeFlashFree",
                         visible: true,
                         formatter: formatterUOM,
-                        formatterParams: {
-                            precision: 1,
-                            thousand: ".",
-                            decimal: ",",
-                            symbol: ["B", "KB", "MB", "GB", "TB"],
-                            base: 1024,
-                            cut: 768,
-                        }
+                        formatterParams: formatterParamsMem,
                     },
                     {
                         title: "RAM",
                         field: "sizeRAM",
                         visible: true,
                         formatter: formatterUOM,
-                        formatterParams: {
-                            precision: 1,
-                            thousand: ".",
-                            decimal: ",",
-                            symbol: ["B", "KB", "MB", "GB", "TB"],
-                            base: 1024,
-                            cut: 768,
-                        }
+                        formatterParams: formatterParamsMem,
                     },
                     {
                         title: "EPROM",
                         field: "sizeEPROM",
                         visible: true,
                         formatter: formatterUOM,
-                        formatterParams: {
-                            precision: 1,
-                            thousand: ".",
-                            decimal: ",",
-                            symbol: ["B", "KB", "MB", "GB", "TB"],
-                            base: 1024,
-                            cut: 768,
-                        }
+                        formatterParams: formatterParamsMem,
                     },
                 ],
             },
@@ -571,6 +518,52 @@ const formatterUOM = function (cell, params, onRendered) {
 
 // #endregion
 
+
+// #region formatter params
+
+/**
+ * Formatter parameters for Pin UOM.
+ */
+const formatterParamsPin = {
+    precision: 0,
+    symbols: ["Pin", "Pins"],
+    base: 1,
+}
+
+/**
+ * Formatter parameters for Memory UOM.
+ */
+const formatterParamsMem = {
+    precision: 1,
+    thousand: ".",
+    decimal: ",",
+    symbols: ["B", "KB", "MB", "GB", "TB"],
+    base: 1024,
+    cut: 768,
+}
+
+/**
+ * Formatter parameters for Voltage UOM.
+ */
+const formatterParamsVolt = {
+    precision: false,
+    thousand: ".",
+    decimal: ",",
+    symbols: "V",
+}
+
+/**
+ * Formatter parameters for Frequency UOM.
+ */
+const formatterParamsFreq = {
+    precision: 1,
+    thousand: ".",
+    decimal: ",",
+    symbols: ["Hz", "KHz", "MHz", "GHz"],
+    base: 1000,
+    cut: 750,
+}
+// #endregion
 
 // #region helpers
 
