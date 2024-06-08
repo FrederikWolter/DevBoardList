@@ -113,15 +113,8 @@ function loadBoardTable(element) {
                         title: "Price",
                         field: "price",
                         visible: true,
-                        formatter: "money",
-                        formatterParams: {
-                            decimal: ",",
-                            thousand: ".",
-                            symbol: "€",
-                            symbolAfter: true,
-                            negativeSign: "-",
-                            precision: 1,
-                        }
+                        formatter: formatterUOM,
+                        formatterParams: formatterParamsEUR,
                     },
                     {
                         title: "Width",
@@ -565,6 +558,17 @@ const formatterParamsFreq = {
     base: 1000,
     cut: 750,
     symbols: ["Hz", "KHz", "MHz", "GHz"],
+    thousand: true,
+    minFractionDigits: 0,
+    maxFractionDigits: 1,
+}
+
+/**
+ * Formatter parameters for currency in Euro UOM.
+ */
+const formatterParamsEUR = {
+    base: 0,
+    symbols: ["€"],
     thousand: true,
     minFractionDigits: 0,
     maxFractionDigits: 1,
