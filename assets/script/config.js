@@ -2,7 +2,23 @@
  * File containing configuration.
  */
 
-// #region tabulator constants
+// #region page config
+/**
+ * Text for naming the project.
+ * @constant {string}
+ */
+const APP_NAME = "DevBoardList";
+document.title = APP_NAME;
+
+/**
+ * Path to app icon.
+ * @constant {string}
+ */
+const APP_ICON = "https://stackoverflow.com/favicon.ico";
+$("link[rel='icon']")[0].href = APP_ICON;
+// #endregion
+
+// #region tabulator config
 /**
  * Text for empty tabulator due to no data present.
  * @constant {string}
