@@ -62,14 +62,12 @@ function loadBoardTable(element) {
             {
                 title: "Name",
                 field: "name",
-                visible: true,
                 frozen: true,
                 rowHandle: true,
             },
             {
                 title: "Image",
                 field: "id",
-                visible: true,
                 frozen: true,
                 resizable: false,
                 rowHandle: true,
@@ -96,7 +94,6 @@ function loadBoardTable(element) {
                     {
                         title: "Link",
                         field: "link",
-                        visible: true,
                         resizable: false,
                         headerSort: false,
                         hozAlign: "center",
@@ -112,33 +109,28 @@ function loadBoardTable(element) {
                     {
                         title: "Price",
                         field: "price",
-                        visible: true,
                         formatter: formatterUOM,
                         formatterParams: formatterParamsEUR,
                     },
                     {
                         title: "Width",
                         field: "dimX",
-                        visible: true,
                         formatter: formatterUOM,
                         formatterParams: formatterParamsPin,
                     },
                     {
                         title: "Height",
                         field: "dimY",
-                        visible: true,
                         formatter: formatterUOM,
                         formatterParams: formatterParamsPin,
                     },
                     {
                         title: "Connector",
                         field: "connector",
-                        visible: true,
                     },
                     {
                         title: "Docs",
                         field: "id",
-                        visible: true,
                         resizable: false,
                         headerSort: false,
                         hozAlign: "center",
@@ -164,12 +156,10 @@ function loadBoardTable(element) {
                     {
                         title: "Chip",
                         field: "chip",
-                        visible: true,
                     },
                     {
                         title: "Docs",
                         field: "chip",
-                        visible: true,
                         resizable: false,
                         headerSort: false,
                         hozAlign: "center",
@@ -190,31 +180,26 @@ function loadBoardTable(element) {
                     {
                         title: "Clock",
                         field: "clock",
-                        visible: true,
                         formatter: formatterUOM,
                         formatterParams: formatterParamsFreq,
                     },
                     {
                         title: "Cores",
                         field: "coreCnt",
-                        visible: true,
                     },
                     {
                         title: "CoreBit",
                         field: "coreBit",
-                        visible: true,
                     },
                     {
                         title: "VoltOp",
                         field: "voltOp",
-                        visible: true,
                         formatter: formatterUOM,
                         formatterParams: formatterParamsVolt,
                     },
                     {
                         title: "VoltIn",
                         field: "voltIn",
-                        visible: true,
                         formatter: formatterUOM,
                         formatterParams: formatterParamsVolt,
                     },
@@ -226,28 +211,24 @@ function loadBoardTable(element) {
                     {
                         title: "Flash",
                         field: "sizeFlash",
-                        visible: true,
                         formatter: formatterUOM,
                         formatterParams: formatterParamsMem,
                     },
                     {
                         title: "FlashFree",
                         field: "sizeFlashFree",
-                        visible: true,
                         formatter: formatterUOM,
                         formatterParams: formatterParamsMem,
                     },
                     {
                         title: "RAM",
                         field: "sizeRAM",
-                        visible: true,
                         formatter: formatterUOM,
                         formatterParams: formatterParamsMem,
                     },
                     {
                         title: "EPROM",
                         field: "sizeEPROM",
-                        visible: true,
                         formatter: formatterUOM,
                         formatterParams: formatterParamsMem,
                     },
@@ -259,7 +240,6 @@ function loadBoardTable(element) {
                     {
                         title: "Pinout",
                         field: "id",
-                        visible: true,
                         resizable: false,
                         headerSort: false,
                         hozAlign: "center",
@@ -281,27 +261,22 @@ function loadBoardTable(element) {
                     {
                         title: "GPIO",
                         field: "cntGPIO",
-                        visible: true,
                     },
                     {
                         title: "Digital",
                         field: "cntDigital",
-                        visible: true,
                     },
                     {
                         title: "Analog",
                         field: "cntAnalog",
-                        visible: true,
                     },
                     {
                         title: "AnalogBit",
                         field: "analogBit",
-                        visible: true,
                     },
                     {
                         title: "PWM",
                         field: "cntPWM",
-                        visible: true,
                     },
                 ],
             },
@@ -311,27 +286,22 @@ function loadBoardTable(element) {
                     {
                         title: "UART",
                         field: "laneUART",
-                        visible: true,
                     },
                     {
                         title: "I2C",
                         field: "laneI2C",
-                        visible: true,
                     },
                     {
                         title: "SPI",
                         field: "laneSPI",
-                        visible: true,
                     },
                     {
                         title: "Protocol",
                         field: "protocol",
-                        visible: true,
                     },
                     {
                         title: "Edge",
                         field: "castellatedEdge",
-                        visible: true,
                         formatter: "tickCross",
                         formatterParams: {
                             allowEmpty: true,
@@ -346,12 +316,10 @@ function loadBoardTable(element) {
                     {
                         title: "Platform",
                         field: "platform",
-                        visible: true,
                     },
                     {
                         title: "Comment",
                         field: "comment",
-                        visible: true,
                         formatter: "textarea",
                     },
                 ],
@@ -373,8 +341,6 @@ function loadBoardTable(element) {
 // TODO https://tabulator.info/docs/6.2/options#popup
 // TODO https://tabulator.info/docs/6.2/options#find-table
 // TODO https://tabulator.info/docs/6.2/options#default
-
-// TODO remove unnecessary values like visible: true
 
 // #region formatters
 /**
