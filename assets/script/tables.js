@@ -398,18 +398,10 @@ const formatterLink = function (cell, params, onRendered) {
     const el = document.createElement("a")
     el.href = urlPrefix + cell.getValue() + urlSuffix;
     el.innerHTML = label;
-
-    if (target)
-        el.target = target;
-
-    if (type)
-        el.type = type;
-
-    if (download)
-        el.download = download === true ? "" : download;
-
-    if (cssClass)
-        el.className = cssClass;
+    el.target = target;
+    el.type = type;
+    el.download = download === true ? "" : download;
+    el.className = cssClass;
 
     return el;
 }
@@ -448,7 +440,7 @@ function formatterImage(cell, params, onRendered) {
     if (alt)
         el.alt = alt;
     if (srcset)
-        el.srcset = srcset;  
+        el.srcset = srcset;
 
     el.addEventListener("load", () => cell.getRow().normalizeHeight());
 
