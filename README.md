@@ -15,11 +15,11 @@
 - **Frontend**: HTML, CSS, JavaScript
 - **Storage**: Static in file
 - **Libraries**:
-  - [Tabulator](https://tabulator.info/): creating interactive tables, enhancing data visualization and user experience.
-  - [jQuery](https://jquery.com/): simplifying DOM manipulation and event handling tasks, streamlining development.
-  - [NodeJs](https://nodejs.org/en): type checking purposes, ensuring code integrity and reducing runtime errors - not involved in code execution.
-  - [Bootstrap](https://getbootstrap.com/): providing framework for front-end development, pre-styled components and a responsive grid system.
-  - [Bootstrap Icons](https://icons.getbootstrap.com/): adding visually appealing and consistent iconography throughout the project's interface, improving usability.
+  - [Tabulator](https://tabulator.info/): create interactive tables, enhance data visualization and user experience.
+  - [jQuery](https://jquery.com/): simplify DOM manipulation and event handling tasks, streamline development.
+  - [NodeJs](https://nodejs.org/en): ensure code integrity and reduce runtime errors $-$ not in productive code.
+  - [Bootstrap](https://getbootstrap.com/): provide front-end development framework, pre-styled components and a responsive grid system.
+  - [Bootstrap Icons](https://icons.getbootstrap.com/): add visually appealing and consistent icons to project's interface, improve usability.
 
 
 ## Documentation
@@ -37,7 +37,8 @@ The following table library alternatives were considered in the selection proces
 
 - [Ag-Grid](https://www.ag-grid.com/): A high-performance professional JavaScript data grid component with support for a wide range of features. Often chosen for its performance and scalability. $-$ ❌[pricing](https://www.ag-grid.com/license-pricing/)
 
-### Color Palette
+### Color Palette 
+<!-- TODO change to bootsrap colors/system-->
 
 $\color{#4a85d6}{\rule[-4.5pt]{30pt}{15pt}}$ `#4a85d6` Lighter Primary Color\
 $\color{#2968b7}{\rule[-4.5pt]{30pt}{15pt}}$ `#2968b7` Primary Color (*Accented*)\
