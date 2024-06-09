@@ -403,11 +403,10 @@ function formatterImage(cell, params, onRendered) {
     el.style.width = width;
     el.style.height = height;
 
-    if (alt)
-        el.alt = alt;
-    if (srcset)
-        el.srcset = srcset;
+    if (alt) el.alt = alt;
+    if (srcset) el.srcset = srcset;
 
+    el.setAttribute("data-bs-index", cell.getRow().getIndex())
     el.addEventListener("load", () => cell.getRow().normalizeHeight());
 
     return el;
