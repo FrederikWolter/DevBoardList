@@ -21,17 +21,13 @@ class UnitOfMeasure {
      * Convert UOM to string.
      * @returns {string} name of UOM.
      */
-    toString() {
-        return this.name;
-    }
+    toString() { return this.name; }
 
     /**
      * Convert UOM to number.
      * @returns {number} factor of UOM.
      */
-    valueOf() {
-        return this.factor;
-    }
+    valueOf() { return this.factor; }
 
     /**
      * Generate a list of predefined UOMs.
